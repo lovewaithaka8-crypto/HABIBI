@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
+    background:
+      linear-gradient(
+        rgba(0, 5, 12, 0.48),
+        rgba(0, 5, 12, 0.68)
+      ),
+      url("/roses.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff5fa;
+    min-height: 100vh;
+  }
+
+  @media(max-width: 768px) {
+    body {
+      background-attachment: scroll;
+      background-position: center;
+    }
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    color: #ffb3c7;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    color: #ffb6c9;
+  }
+
+  .font-vibes {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .font-serif-romantic {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+/* Elegant transparent sections requested by user */
+.card {
+  background: rgba(10, 0, 8, 0.62);
+  border: 1px solid rgba(255, 50, 90, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+}
+
+/* Love letter requested by user */
+.love-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  line-height: 1.9;
+  color: #fff0f4;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-115vh) scale(1.15) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(244, 93, 145, 0.4));
+  }
+  50% {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 35px rgba(244, 93, 145, 0.8));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.floating-heart-particle {
+  position: absolute;
+  bottom: -60px;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+}
